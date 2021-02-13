@@ -57,7 +57,7 @@ body{
 
     </style>
   <div class="col-12">
-  <div class="col-md-12 col-lg-6 col-xl-12">
+  <div class="col-md-12 col-lg-12 col-xl-12">
      <div class="card shadow mb-4">
 
             <div class="card-header py-3">

@@ -25,6 +25,10 @@ class LoginController extends Controller
      *
      * @var string
      */
+    public function username()
+{
+    return 'id_emp';
+}
      protected function redirectTo()
      {
          if(auth()->user()->isAdmin()) {

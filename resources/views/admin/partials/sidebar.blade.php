@@ -1,265 +1,280 @@
 @include('/admin/partials/header')
 @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+    <div class="alert alert-success" role="alert">
+        {{ session('status') }}
+    </div>
+@endif
 <div id="wrapper">
 
-  <!-- Sidebar -->
-  <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="
 background-image: linear-gradient(to left bottom, #303952, #303952, #303952);
   ">
 
-    <!-- Sidebar - Brand -->
-    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{url('/')}}">
-      <div class="sidebar-brand-icon rotate-n-15">
-        <i class="fas fa-cogs"></i>
-      </div>
-      <div class="sidebar-brand-text mx-3">Santhiya<sup>IT</sup></div>
-    </a>
+        <!-- Sidebar - Brand -->
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
+            <div class="sidebar-brand-icon rotate-n-15">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <div class="sidebar-brand-text mx-3">Santhiya<sup>IT</sup></div>
+        </a>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider my-0">
+        <!-- Divider -->
+        <hr class="sidebar-divider my-0">
 
-    <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
-      <a class="nav-link" href="{{url('chart')}}">
-        <i class="fas fa-chart-pie"></i>
-        <span>Dashboard</span></a>
-    </li>
-     <li class="nav-item active">
-      <a class="nav-link" href="{{url('post_public')}}">
-        <i class="fas fa-comment-alt"></i>
-        <span>โพสสาธารณะ</span></a>
-    </li>
+        <!-- Nav Item - Dashboard -->
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ url('chart') }}">
+                <i class="fas fa-chart-pie"></i>
+                <span>Dashboard</span></a>
+        </li>
+        <li class="nav-item active">
+            <a class="nav-link" href="{{ url('post_public') }}">
+                <i class="fas fa-comment-alt"></i>
+                <span>โพสสาธารณะ</span></a>
+        </li>
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-      เมนูการใช้งาน
-    </div>
-
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-        <i class="fas fa-box-open"></i>
-        <span>คลังอุปกรณ์</span>
-      </a>
-      <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">Manage</h6>
-          <a class="collapse-item" href="{{url('stores')}}">คอมพิวเตอร์</a>
-          <a class="collapse-item" href="{{url('number')}}">เบอร์ภายใน</a>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            เมนูการใช้งาน
         </div>
-      </div>
-    </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                aria-expanded="true" aria-controls="collapseTwo">
+                <i class="fas fa-box-open"></i>
+                <span>คลังอุปกรณ์</span>
+            </a>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">Manage</h6>
+                    <a class="collapse-item" href="{{ url('stores') }}">คอมพิวเตอร์</a>
+                    <a class="collapse-item" href="{{ url('number') }}">เบอร์ภายใน</a>
+                </div>
+            </div>
+        </li>
 
 
-    <!-- Nav Item - Utilities Collapse Menu -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-        <i class="fas fa-layer-group"></i>
-        <span>ระบบการแจ้งซ่อม</span>
-      </a>
-      <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">ตัวเลือก</h6>
-          <a class="collapse-item" href="{{url('ticket')}}">รายการแจ้งซ่อม</a>
-          <a class="collapse-item" href="{{url('export')}}">รายงาน</a>
+        <!-- Nav Item - Utilities Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+                aria-expanded="true" aria-controls="collapseUtilities">
+                <i class="fas fa-layer-group"></i>
+                <span>ระบบการแจ้งซ่อม</span>
+            </a>
+            <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+                data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">ตัวเลือก</h6>
+                    <a class="collapse-item" href="{{ url('ticket') }}">รายการแจ้งซ่อม</a>
+                    <a class="collapse-item" href="{{ url('export') }}">รายงาน</a>
+                </div>
+            </div>
+        </li>
+
+
+        <!-- Divider -->
+        <hr class="sidebar-divider">
+
+        <!-- Heading -->
+        <div class="sidebar-heading">
+            ตั้งค่าส่วนของระบบ
         </div>
-      </div>
-    </li>
+
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-fingerprint"></i>
+                <span>สมาชิก</span>
+            </a>
+            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">ตัวเลือก</h6>
+
+                    <a class="collapse-item" href="{{ url('member') }}">จัดการสมาชิก</a>
+
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmp"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-user-cog"></i>
+                <span>ระบบพนักงาน</span>
+            </a>
+            <div id="collapseEmp" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">ตัวเลือก</h6>
+                    <a class="collapse-item" href="{{ url('employee') }}">รายชื่อพนักงาน</a>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDep"
+                aria-expanded="true" aria-controls="collapsePages">
+                <i class="fas fa-braille"></i>
+                <span>ระบบเงือนไข</span>
+            </a>
+            <div id="collapseDep" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">ตัวเลือก</h6>
+                    <a class="collapse-item" href="{{ url('problem') }}">เพิ่มหมวดปัญหา</a>
+                    <a class="collapse-item" href="{{ url('department') }}">เพิ่มแผนก</a>
+                </div>
+            </div>
+        </li>
+
+        <!-- Nav Item - Charts -->
 
 
-    <!-- Divider -->
-    <hr class="sidebar-divider">
 
-    <!-- Heading -->
-    <div class="sidebar-heading">
-      ตั้งค่าส่วนของระบบ
-    </div>
 
-    <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
-        <i class="fas fa-fingerprint"></i>
-        <span>สมาชิก</span>
-      </a>
-      <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">ตัวเลือก</h6>
 
-          <a class="collapse-item" href="{{url('member')}}">จัดการสมาชิก</a>
+        <!-- Divider -->
+        <hr class="sidebar-divider d-none d-md-block">
 
+        <!-- Sidebar Toggler (Sidebar) -->
+        <div class="text-center d-none d-md-inline">
+            <button class="rounded-circle border-0" id="sidebarToggle"></button>
         </div>
-      </div>
-    </li>
 
-    <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmp" aria-expanded="true" aria-controls="collapsePages">
-        <i class="fas fa-user-cog"></i>
-        <span>ระบบพนักงาน</span>
-      </a>
-      <div id="collapseEmp" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">ตัวเลือก</h6>
-          <a class="collapse-item" href="{{url('employee')}}">รายชื่อพนักงาน</a>
-        </div>
-      </div>
-    </li>
+    </ul>
+    <!-- End of Sidebar -->
 
-      <li class="nav-item">
-      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDep" aria-expanded="true" aria-controls="collapsePages">
-        <i class="fas fa-braille"></i>
-        <span>ระบบเงือนไข</span>
-      </a>
-      <div id="collapseDep" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-        <div class="bg-white py-2 collapse-inner rounded">
-          <h6 class="collapse-header">ตัวเลือก</h6>
-          <a class="collapse-item" href="{{url('problem')}}">เพิ่มหมวดปัญหา</a>
-          <a class="collapse-item" href="{{url('department')}}">เพิ่มแผนก</a>
-        </div>
-      </div>
-    </li>
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-    <!-- Nav Item - Charts -->
+        <!-- Main Content -->
+        <div id="content">
 
-
-
-
-
-    <!-- Divider -->
-    <hr class="sidebar-divider d-none d-md-block">
-
-    <!-- Sidebar Toggler (Sidebar) -->
-    <div class="text-center d-none d-md-inline">
-      <button class="rounded-circle border-0" id="sidebarToggle"></button>
-    </div>
-
-  </ul>
-  <!-- End of Sidebar -->
-
-  <!-- Content Wrapper -->
-  <div id="content-wrapper" class="d-flex flex-column">
-
-    <!-- Main Content -->
-    <div id="content">
-
-      <!-- Topbar -->
-      <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow" style="
+            <!-- Topbar -->
+            <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow" style="
       color:#ffffff;
       background-color:#2c3e50;
       
       
       ">
 
-        <!-- Sidebar Toggle (Topbar) -->
-        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-          <i class="fa fa-bars"></i>
-        </button>
+                <!-- Sidebar Toggle (Topbar) -->
+                <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <i class="fa fa-bars"></i>
+                </button>
 
-       
 
-        <!-- Topbar Navbar -->
-        <ul class="navbar-nav ml-auto">
 
-          <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-  
-          <!-- Nav Item - Alerts -->
-          <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-bell fa-fw"></i>
-              <!-- Counter - Alerts -->
-              <span class="badge badge-danger badge-counter">#</span>
-            </a>
-            <!-- Dropdown - Alerts -->
-            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="alertsDropdown">
-              <h6 class="dropdown-header">
-                Alerts Center
-                <!-- Incldue Pusher Js Client via CDN -->
-    <script src="https://js.pusher.com/4.2/pusher.min.js"></script>
-    <!-- Alert whenever a new notification is pusher to our Pusher Channel -->
+                <!-- Topbar Navbar -->
+                <ul class="navbar-nav ml-auto">
 
-    <script>
-        //Remember to replace key and cluster with your credentials.
-        var pusher = new Pusher('2b19085361502f3d52f5', {
-            cluster: 'ap1',
-            encrypted: true
-        });
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
 
-        //Also remember to change channel and event name if your's are different.
-        var channel = pusher.subscribe('notification');
-        channel.bind('notification-event', function(message) {
-            alert(message);
-        });
+                    <!-- Nav Item - Alerts -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-bell fa-fw"></i>
+                            <!-- Counter - Alerts -->
+                            <span class="badge badge-danger badge-counter">#</span>
+                        </a>
+                        <!-- Dropdown - Alerts -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="alertsDropdown">
+                            <h6 class="dropdown-header">
+                                Alerts Center
+                                <!-- Incldue Pusher Js Client via CDN -->
+                                <script src="https://js.pusher.com/4.2/pusher.min.js"></script>
+                                <!-- Alert whenever a new notification is pusher to our Pusher Channel -->
+
+                                <script>
+                                    //Remember to replace key and cluster with your credentials.
+                                    var pusher = new Pusher('2b19085361502f3d52f5', {
+                                        cluster: 'ap1',
+                                        encrypted: true
+                                    });
+
+                                    //Also remember to change channel and event name if your's are different.
+                                    var channel = pusher.subscribe('notification');
+                                    channel.bind('notification-event', function(message) {
+                                        alert(message);
+                                    });
+
+                                </script>
+                            </h6>
+
+                        </div>
+                    </li>
+
+                    <!-- Nav Item - Messages -->
+                    <li class="nav-item dropdown no-arrow mx-1">
+                        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-envelope fa-fw"></i>
+                            <!-- Counter - Messages -->
+                            <span class="badge badge-danger badge-counter">#</span>
+                        </a>
+                        <!-- Dropdown - Messages -->
+                        <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="messagesDropdown">
+                            <h6 class="dropdown-header">
+                                Message Center
+                            </h6>
+
+
+                        </div>
+                    </li>
+
+                    <div class="topbar-divider d-none d-sm-block"></div>
+
+                    <!-- Nav Item - User Information -->
+
+                    <li class="nav-item dropdown no-arrow">
+                        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                <b>{{ Auth::user()->emps->first_name }} <br>
+                                    {{ Auth::user()->emps->last_name }}</b> </span>
+
+                            <img class="img-profile rounded-circle"
+                                src="{{ URL::to('/') }}/images/{{ Auth::user()->emps->image }}">
+
+                        </a>
+                        <!-- Dropdown - User Information -->
+                        <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                            aria-labelledby="userDropdown">
+
+                            <a href="{{ url('profile') }}" class="dropdown-item" data-toggle="modal"
+                                data-target="#profile">
+                                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                Profile
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();">
+                                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                {{ __('Logout') }}
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
+                            </a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </nav>
+            <!-- End of Topbar -->
+
+            <!-- Begin Page Content -->
+            <!-- /.container-fluid -->
 
         
-
-    </script>
-              </h6>
-
-            </div>
-          </li>
-
-          <!-- Nav Item - Messages -->
-          <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class="fas fa-envelope fa-fw"></i>
-              <!-- Counter - Messages -->
-              <span class="badge badge-danger badge-counter">#</span>
-            </a>
-            <!-- Dropdown - Messages -->
-            <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
-              <h6 class="dropdown-header">
-                Message Center
-              </h6>
-
-
-            </div>
-          </li>
-
-          <div class="topbar-divider d-none d-sm-block"></div>
-
-          <!-- Nav Item - User Information -->
-
-          <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <b>{{ Auth::user()->emps->first_name }} <br>  {{ Auth::user()->emps->last_name }}</b> </span>
-
-              <img class="img-profile rounded-circle" src="{{ URL::to('/') }}/images/{{Auth::user()->emps->image }}">
-
-            </a>
-            <!-- Dropdown - User Information -->
-            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-            
-              <a href="{{url('profile')}}" class="dropdown-item" data-toggle="modal" data-target="#profile">
-                <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                Profile
-              </a>
-
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="{{ route('logout') }}"
-                onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-                <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                {{ __('Logout') }}
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                                        @csrf
-                                                    </form>
-              </a>
-            </div>
-          </li>
-
-        </ul>
-
-      </nav>
-      <!-- End of Topbar -->
-
-      <!-- Begin Page Content -->        <!-- /.container-fluid -->
-
-    </div>
-    @include('profile')
-    @include('profileapp')
+        @include('profile')
+        @include('profileapp')

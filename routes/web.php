@@ -62,7 +62,8 @@ Route::resource('department', 'DepartmentController');
 Route::post('department/update', 'DepartmentController@update')->name('department.update');
 Route::get('department/destroy/{id}', 'DepartmentController@destroy');
 
-
+//Content 
+Route::get('/post_public', 'ContentPublicController@index')->name('post_public');
 
 
 Route::get('/home', 'HomeController@index')->name('home');

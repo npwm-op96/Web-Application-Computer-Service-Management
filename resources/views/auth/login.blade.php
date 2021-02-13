@@ -21,6 +21,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
+
 </head>
 
 <body class="bg-gradient-primary">
@@ -48,7 +49,7 @@
                     <h1 class="h4 text-gray-900 mb-4">Welcome IT SERVICE</h1>
                   </div>
                   <form class="user" role="form" method="POST" action="{{ url('/login') }}">
-                    {!! csrf_field() !!}
+                    {{ csrf_field() }}
                     <div class="form-group">
                       <input type="text" id="exampleInputEmail" class="form-control form-control-user" name="id_emp" value="{{ old('id_emp') }}">
 

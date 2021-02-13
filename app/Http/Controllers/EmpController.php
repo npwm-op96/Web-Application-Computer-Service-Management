@@ -131,7 +131,7 @@ class EmpController extends Controller
               'id_emp'     =>  'required',
               'id_dep'     =>  'required',
               'position'     =>  'required',
-              'image'         =>  'required|image|max:2048'
+            //   'image'         =>  'required|image|mimes:jpeg,jpg,png|'
             );
             $error = Validator::make($request->all(), $rules);
             if($error->fails())

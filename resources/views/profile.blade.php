@@ -17,7 +17,7 @@ use App\Store;
 
       </div>
       <div class="container" style="
-                background-image: url('https://phangan-explorer.com/wp-content/uploads/2018/11/143065847-1024x682.jpg');
+                background-image: url('https://source.unsplash.com/random');
                 background-size: 500px 255px;
                 height: 250px;
           " >
@@ -25,8 +25,8 @@ use App\Store;
       <div class="d-flex justify-content-center">
       <img class="img-profile rounded-circle "  src="{{ URL::to('/') }}/images/{{Auth::user()->emps->image }}" style="
       
-      width:60%;
-      height:60%;
+      width:40%;
+      /* height:60%; */
       
       
       ">

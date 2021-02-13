@@ -1,5 +1,5 @@
 	<script>
-    	function getPageData() {
+    	// function getPageData() {
 
 		$.ajax({
 
@@ -15,7 +15,7 @@
 
 		});
 
-	}
+	// }
 
 
 
