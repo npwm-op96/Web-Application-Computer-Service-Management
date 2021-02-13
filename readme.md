@@ -2,10 +2,10 @@
 
 Role : ADMIN
 
-<p align="center"><a href="https://uppic.cc/v/vFgOGfDhZvdY75tanT0Cc" title="" ><img src="https://uppic.cc/d/vFgOGfDhZvdY75tanT0Cc" alt="" /></a></p>
+<p align="center"><img src="https://uppic.cc/d/vFgOGfDhZvdY75tanT0Cc" alt="" /></p>
 
 Role : USER
-<p align="center"><a href="https://uppic.cc/v/PIUlcxNiDN_OkgN-PoX70" title="" ><img src="https://uppic.cc/d/PIUlcxNiDN_OkgN-PoX70" alt="" /></a></p>
+<p align="center"><img src="https://uppic.cc/d/PIUlcxNiDN_OkgN-PoX70" alt="" /></p>
 
 
 
