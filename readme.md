@@ -4,10 +4,10 @@
 
 Role : ADMIN
 
-<p align="center"><img src="https://i.imgur.com/wuvTVIJ.jpg" alt="" /></p>
+<p align="center"><img src="https://i.imgur.com/wuvTVIJ.jpg" width="500px" alt="" /></p>
 
 Role : USER
-<p align="center"><img src="https://i.imgur.com/Y6u7bGP.jpg" alt="" /></p>
+<p align="center"><img src="https://i.imgur.com/Y6u7bGP.jpg" width="500px" alt="" /></p>
 
 
 
