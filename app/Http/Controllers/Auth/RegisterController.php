@@ -67,7 +67,7 @@ class RegisterController extends Controller
  {
      $id_emp=$data['id_emp'];
      $emp = User::ALL()->where('id_emp',$id_emp)->count();
-     if ($emp = 1){
+     if ($emp != 1){
                return   User::create([
          'id_emp' => trim($data['id_emp']),
          'password' => Hash::make($data['password']),
