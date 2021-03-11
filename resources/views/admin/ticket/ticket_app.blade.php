@@ -1,35 +1,17 @@
 
     <script type="text/javascript">
-
 		var url = "{{route('posts.index')}}";
-
-
-
 	</script>
-
 	<script>
 	var page = 1;
-
 	var current_page = 1;
-
 	var total_page = 0;
-
 	var is_ajax_fire = 0;
 
-
-
-
 	manageData();
-
-
-
-
 	/* manage data list */
 
 	function manageData() {
-
-
-
 	    $.ajax({
 
 	        dataType: 'json',
@@ -39,37 +21,19 @@
 	        data: {page:page}
 
 	    }).done(function(data){
-
-
-
 	    	total_page = data.last_page;
 
 	    	current_page = data.current_page;
-
-
-
 	    	$('#pagination').twbsPagination({
-
 		        totalPages: total_page,
-
 		        visiblePages: current_page,
-
 		        onPageClick: function (event, pageL) {
-
 		        	page = pageL;
-
 	                if(is_ajax_fire != 0){
-
 		        	  getPageData();
-
 	                }
-
 		        }
-
 		    });
-
-
-
 	    	manageRow(data.data);
 
 	        is_ajax_fire = 1;
@@ -77,22 +41,11 @@
 	    });
 
 	}
-
-
-
-
 	$.ajaxSetup({
-
 	    headers: {
-
 	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-
 	        }
-
 	});
-
-
-
 
 	/* Get Page Data*/
 
@@ -179,8 +132,8 @@
                     rows = rows + ' <button data-toggle="modal" data-target="#edit-satisfaction" class="edit-satisfaction fas fa-grin btn btn-primary small  btn-sm ">  </button>';
 
                     else if(value.status!='waiting')
-                    rows = rows + '<button data-toggle="modal" data-target="#chat" class="edit-chat fab fa-rocketchat btn btn btn-info small edit-item btn-sm "></button> ';
-                    else
+						rows = rows + '<button id="onchats" data-toggle="modal" id="onchats" data-target="#onchats" class="onchats fab fa-rocketchat btn btn-info small btn-sm "></button> ';
+						else
 					rows = rows + '';
 
 
@@ -188,10 +141,9 @@
 					if(value.id_staff== null||value.id_staff=={{ Auth::user()->id_emp }})
                         if(value.satisfaction==null)
 						rows = rows + '<td class=small data-id="'+value.id_ticket+'">';
-						rows = rows + '<button data-toggle="modal" data-target="#edit-chat" class="edit-chat fab fa-rocketchat btn btn-info small btn-sm "></button> ';
+						rows = rows + '<button  id="onchats" data-target="#onchats" class="onchats fab fa-rocketchat btn btn-info small btn-sm "></button> ';
 			        	rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="fas fa-edit btn btn-primary small edit-item btn-sm "></button> ';
-
-			        rows = rows + '<button class="fas fa-trash-alt btn btn-danger small remove-item btn-sm "> </button>';
+			        	rows = rows + '<button class="fas fa-trash-alt btn btn-danger small remove-item btn-sm "> </button>';
 				@endif
 
 
@@ -420,8 +372,24 @@ $("body").on("click",".edit-satisfaction",function(){
 	    });
 
 	});
+//Chats
 
-	
+		$("#onchats").on("click", function () {
+			console.log('Hi')
+			$(".chat").slideToggle(300, "swing");
+			$(".chat-message-counter").fadeToggle(300, "swing");
+		});
+
+		$(".chat-close").on("click", function (e) {
+			e.preventDefault();
+			$("#live-chat").fadeOut(300);
+		});
+		// $("body").on("click",".edit-chats",function(){
+		// 	var id = $(this).parent("td").data('id');
+
+		// 	console.log(id)
+		// 	});
+
 		
 		
 
@@ -457,6 +425,11 @@ $("body").on("click",".edit-chat",function(){
     $("#edit-chat").find("input[name='id_ticket']").val(content);
 
     $("#edit-chat").find("form").attr("action",url + '/' + id);
+
+});
+
+$( "#chats" ).click(function() {
+	console.log('Hi')
 
 });
 
