@@ -115,6 +115,8 @@ address {
   line-height: inherit;
 }
 
+
+
 ol,
 ul,
 dl {
@@ -166,6 +168,7 @@ sub {
 sup {
   top: -.5em;
 }
+
 
 a {
   color: #4e73df;
@@ -4425,6 +4428,7 @@ input[type="button"].btn-block {
 }
 
 .navbar {
+  
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -4438,6 +4442,7 @@ input[type="button"].btn-block {
   -ms-flex-pack: justify;
   justify-content: space-between;
   padding: 0.5rem 1rem;
+  
 }
 
 .navbar > .container,
@@ -11202,6 +11207,7 @@ a:focus {
 .sidebar {
   width: 6.5rem;
   min-height: 100vh;
+  box-shadow: 5px 5px 30px 7px rgba(0,0,0,0.25), -5px -5px 30px 7px rgba(0,0,0,0.22);
 }
 
 .sidebar .nav-item {
@@ -11232,6 +11238,12 @@ a:focus {
   left: calc(6.5rem + 1.5rem / 2);
   z-index: 1;
   top: 2px;
+}
+.shadow-managent
+{
+  /* border: 1px solid;
+  padding: 10px; */
+  box-shadow: 8px 0 10px -6px black;
 }
 
 .sidebar .nav-item .collapse .collapse-inner {
@@ -11532,7 +11544,7 @@ a:focus {
 }
 
 .sidebar-dark .sidebar-brand {
-  color: #fff;
+  color: #40484a;
 }
 
 .sidebar-dark hr.sidebar-divider {
@@ -11540,19 +11552,22 @@ a:focus {
 }
 
 .sidebar-dark .sidebar-heading {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgb(165 168 179)
 }
 
 .sidebar-dark .nav-item .nav-link {
-  color: rgba(255, 255, 255, 0.8);
-}
+  color: rgb(89 92 105);}
 
 .sidebar-dark .nav-item .nav-link i {
-  color: rgba(255, 255, 255, 0.3);
+  color: rgb(122 147 173);
 }
 
 .sidebar-dark .nav-item .nav-link:active, .sidebar-dark .nav-item .nav-link:focus, .sidebar-dark .nav-item .nav-link:hover {
   color: #fff;
+  background-color:#0175d8;
+  -webkit-box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.75);
 }
 
 .sidebar-dark .nav-item .nav-link:active i, .sidebar-dark .nav-item .nav-link:focus i, .sidebar-dark .nav-item .nav-link:hover i {
@@ -11564,7 +11579,7 @@ a:focus {
 }
 
 .sidebar-dark .nav-item.active .nav-link {
-  color: #fff;
+  color: #595c69;
 }
 
 .sidebar-dark .nav-item.active .nav-link i {
@@ -11572,7 +11587,7 @@ a:focus {
 }
 
 .sidebar-dark #sidebarToggle {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(44, 61, 79);
 }
 
 .sidebar-dark #sidebarToggle::after {

@@ -45,7 +45,7 @@
 	setInterval(manageData, 10000);   // 1000 = 1 second
 
 
-	});
+	// });
 
 
 	/* Edit Post */

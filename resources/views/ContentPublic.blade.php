@@ -33,7 +33,7 @@
                 <div class="row">
                 @for ($i = 1; $i <= 20; $i++)
                         <div class="col-6 p-2">
-                            <div class="card">
+                            <div class="card shadow">
                                 <div class="card-body">
                                   <h5 class="card-title">Network</h5>
                                   <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>

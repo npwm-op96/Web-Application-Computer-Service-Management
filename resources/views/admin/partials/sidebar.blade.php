@@ -4,31 +4,32 @@
         {{ session('status') }}
     </div>
 @endif
-<div id="wrapper">
+
+
+<div id="wrapper" >
 
     <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar" style="
-background-image: linear-gradient(to left bottom, #303952, #303952, #303952);
-  ">
+    <ul class="shadow navbar-nav sidebar sidebar-dark" id="accordionSidebar" style="  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;">
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/') }}">
             <div class="sidebar-brand-icon rotate-n-15">
                 <i class="fas fa-cogs"></i>
             </div>
-            <div class="sidebar-brand-text mx-3">Santhiya<sup>IT</sup></div>
+            <div class="sidebar-brand-text mx-3">Management<sup>IT</sup></div>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
         <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
+        <li class="nav-item ">
             <a class="nav-link" href="{{ url('chart') }}">
                 <i class="fas fa-chart-pie"></i>
                 <span>Dashboard</span></a>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item ">
             <a class="nav-link" href="{{ url('post_public') }}">
                 <i class="fas fa-comment-alt"></i>
                 <span>โพสสาธารณะ</span></a>
@@ -157,10 +158,15 @@ background-image: linear-gradient(to left bottom, #303952, #303952, #303952);
             <!-- Topbar -->
             <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow" style="
       color:#ffffff;
-      background-color:#2c3e50;
+      background-color:#23252d;
       
       
       ">
+      <?
+
+      ?>
+      <span class="badge badge-light"><a class="nav-link " href="{{ url()->previous() }}">Back</a></span>
+
 
                 <!-- Sidebar Toggle (Topbar) -->
                 <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
@@ -176,36 +182,24 @@ background-image: linear-gradient(to left bottom, #303952, #303952, #303952);
 
                     <!-- Nav Item - Alerts -->
                     <li class="nav-item dropdown no-arrow mx-1">
-                        <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                        <a class="nav-link dropdown-toggle" id="Noti_fetch" href="#" id="alertsDropdown" role="button"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-bell fa-fw"></i>
                             <!-- Counter - Alerts -->
-                            <span class="badge badge-danger badge-counter">#</span>
+                            <span class="badge badge-danger badge-counter " id="count_new">
+
+
+                            </span>
                         </a>
                         <!-- Dropdown - Alerts -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
                             aria-labelledby="alertsDropdown">
                             <h6 class="dropdown-header">
                                 Alerts Center
-                                <!-- Incldue Pusher Js Client via CDN -->
-                                <script src="https://js.pusher.com/4.2/pusher.min.js"></script>
-                                <!-- Alert whenever a new notification is pusher to our Pusher Channel -->
-
-                                <script>
-                                    //Remember to replace key and cluster with your credentials.
-                                    var pusher = new Pusher('2b19085361502f3d52f5', {
-                                        cluster: 'ap1',
-                                        encrypted: true
-                                    });
-
-                                    //Also remember to change channel and event name if your's are different.
-                                    var channel = pusher.subscribe('notification');
-                                    channel.bind('notification-event', function(message) {
-                                        alert(message);
-                                    });
-
-                                </script>
                             </h6>
+                            <div id="Noti_new">
+                            </div>
+                        
 
                         </div>
                     </li>
@@ -216,7 +210,7 @@ background-image: linear-gradient(to left bottom, #303952, #303952, #303952);
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-envelope fa-fw"></i>
                             <!-- Counter - Messages -->
-                            <span class="badge badge-danger badge-counter">#</span>
+                            <span class="badge badge-danger badge-counter" ></span>
                         </a>
                         <!-- Dropdown - Messages -->
                         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
@@ -273,8 +267,67 @@ background-image: linear-gradient(to left bottom, #303952, #303952, #303952);
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
+            {{-- {{ Route::previous()->getName() }} --}}
+
             <!-- /.container-fluid -->
 
-        
+        <script>
+
+$( document ).ready(function() {
+
+       $.ajax({
+  url: "/posts",
+  data: {
+    // zipcode: 97201
+  },
+  success: function( result ) {
+      console.log(result.data)
+      let noti = result.data
+      var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+      var result = noti.filter(noti => noti = noti.created_at.split(" "),noti[0]==utc);
+
+
+
+      console.log(result.length)
+
+
+    $( "#count_new" ).html(result.length);
+  }
+});
+});
+
+$( "#Noti_fetch" ).click(function() {
+    
+    $.ajax({
+  url: "/posts",
+  data: {
+    // zipcode: 97201
+  },
+  success: function( result ) {
+    $( "#Noti_new" ).html('')
+      console.log(result.data)
+      let noti = result.data
+      var utc = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+      var result = noti.filter(noti => noti = noti.created_at.split(" "),noti[0]==utc);
+
+
+
+//       console.log(result)
+
+      $.each(result, function(index,element){
+        $( "#Noti_new" ).append( "<div class='p-2'><img class='rounded-circle' src='/images/" +element.emps.image +"' width='20px'>" +"   "+element.id_emp+" "+element.content+"</div>" );
+
+ });
+    //   result.forEach(element => {
+    //   });
+
+  }
+});
+
+});
+
+            
+
+        </script>
         @include('profile')
         @include('profileapp')

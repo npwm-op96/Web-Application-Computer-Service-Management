@@ -6,8 +6,8 @@
     @include('/user/partials/sidebar')
 
 @endif
-<link href="//unpkg.com/bootstrap@next/dist/css/bootstrap.min.css" rel="stylesheet" />
-<link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+{{-- <link href="//unpkg.com/bootstrap@next/dist/css/bootstrap.min.css" rel="stylesheet" /> --}}
+{{-- <link type="text/css" rel="stylesheet" href="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" /> --}}
 <script src="https://unpkg.com/vue"></script>
 <script src="https://unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
 <div id="app" class="container col-12">
@@ -19,14 +19,8 @@
         <div class="col-lg-12 margin-tb">
 
             <div class="pull-left">
-
-
-
             </div>
-
             <div class="pull-right">
-
-
                 @if (Auth::user()->type == 0)
 
                     <button type="button" class="btn btn-success btn-circle btn-xl" data-toggle="modal"
@@ -35,7 +29,6 @@
                             class="fas fa-undo-alt"></span> </a></button>
                     <a href="{{ url('ticket') }}" class="btn btn-info btn-circle btn-xl"><span
                             class="fas fa-file-export"></span> </a></button>
-
                 @else
                     <a href="{{ url('ticket') }}" class="btn btn-secondary btn-circle btn-xl"><span
                             class="fas fa-undo-alt"></span> </a></button>
@@ -44,11 +37,8 @@
                 @endif
                 <div class="pull-right">
                 </div>
-
             </div>
-
         </div>
-
     </div>
     <br>
     <style type="text/css">
@@ -89,7 +79,7 @@ and also iPads specifically.
             }
 
             tr {
-                border: 1px solid #ccc;
+                /* border: 1px solid #ccc; */
             }
 
             td {
@@ -119,10 +109,11 @@ and also iPads specifically.
 
     </style>
 
-
+<div class="card shadow h-100 p-2 py-2">
     <table class="small table" role="table" id="ticket">
         <thead class="thead-dark " role="rowgroup">
             <tr role="row">
+                
                 <th role="columnheader">ID_Ticket</th>
                 <th><span class="fas fa-address-book"> Name</th>
                 <th><span class="fas fa-laptop"> PC</th>
@@ -143,13 +134,9 @@ and also iPads specifically.
 
         </tbody>
     </table>
+</div>
 
     <div class="table responsive small">
-
-
-
-
-
         <ul id="pagination" class="pagination-sm"></ul>
     </div>
 
@@ -160,6 +147,7 @@ and also iPads specifically.
     @include('admin/ticket/create')
     @include('admin/ticket/edit')
     @include('admin/ticket/show')
+    @include('admin/ticket/Chats')
 
 
 
