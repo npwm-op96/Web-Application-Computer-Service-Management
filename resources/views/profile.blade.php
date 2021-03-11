@@ -67,18 +67,6 @@ use App\Store;
       <div>
       </div>
       </div>
-
-      
-      
-      
-      
-      
-      
-
-  
-
-
-
       </div>
 
     </div>

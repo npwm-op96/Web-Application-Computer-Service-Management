@@ -1,4 +1,4 @@
-	<script>
+	{{-- <script>
     	// function getPageData() {
 
 		$.ajax({
@@ -56,4 +56,4 @@
 	});
 
 
-	</script>
+	</script> --}}

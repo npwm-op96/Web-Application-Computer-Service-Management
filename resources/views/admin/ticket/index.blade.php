@@ -193,7 +193,7 @@ and also iPads specifically.
 
 <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     $(document).ready(function() {
         setInterval(refreshTable, 2000);
     });
@@ -202,11 +202,11 @@ and also iPads specifically.
         $('#ticket').load('count.dat');
     }
 
-</script>
+</script> --}}
 
 
 @extends('admin/ticket/ticket_app')
-<script>
+{{-- <script>
     $(document).ready(function() {
         $(".gallery li").on("click", function() {
             var dataId = $(this).attr("data-id");
@@ -214,4 +214,4 @@ and also iPads specifically.
         });
     });
 
-</script>
+</script> --}}

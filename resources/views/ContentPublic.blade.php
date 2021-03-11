@@ -31,22 +31,21 @@
             </div>
             <div class="contianer">
                 <div class="row">
-                @for ($i = 1; $i <= 20; $i++)
-                        <div class="col-6 p-2">
+                    @foreach ($content as $item)
+
+                      <div class="col-12 p-2">
                             <div class="card shadow">
                                 <div class="card-body">
-                                  <h5 class="card-title">Network</h5>
-                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                  <a href="#" class="btn btn-primary">ดูเพิ่มเติม</a>
+                                  <h5 class="card-title">{{ $item['topic']}}</h5>
+                                  <p class="card-text">{{$item['content']}}</p>
+                                  <button type="button" class="btn btn-outline-info">Info</button>
                                 </div>
                               </div>
                         </div>
-                        @endfor
+                     @endforeach  
                     </div>
                 </div>
                 <br>
-
-
         </div>
         <!-- End of Main Content -->
         @include('/admin/partials/footer')

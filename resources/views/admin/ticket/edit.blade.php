@@ -89,9 +89,7 @@ function StatusCheck(that) {
     } else {
 
         document.getElementById("end_time").style.display = "none";
-
     }
-
 }
 
 $(function(){

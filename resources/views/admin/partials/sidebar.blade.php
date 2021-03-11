@@ -156,16 +156,24 @@
         <div id="content">
 
             <!-- Topbar -->
+
+              {{-- <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="sass.html">Sass</a></li>
+        <li><a href="badges.html">Components</a></li>
+        <li><a href="collapsible.html">JavaScript</a></li>
+      </ul>
+    </div>
+  </nav> --}}
             <nav class="navbar navbar-expand navbar-light  topbar mb-4 static-top shadow" style="
       color:#ffffff;
       background-color:#23252d;
       
       
       ">
-      <?
-
-      ?>
-      <span class="badge badge-light"><a class="nav-link " href="{{ url()->previous() }}">Back</a></span>
+      {{-- <span class="badge badge-light"><a class="nav-link " href="{{ url()->previous() }}">Back</a></span> --}}
 
 
                 <!-- Sidebar Toggle (Topbar) -->
@@ -199,8 +207,6 @@
                             </h6>
                             <div id="Noti_new">
                             </div>
-                        
-
                         </div>
                     </li>
 

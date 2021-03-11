@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Message;
-use App\Events\MessageSent;
+use App\Chat;
+// use App\Events\MessageSent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class ChatsController extends Controller
 {
-    public function __construct()
-{
-  $this->middleware('auth');
-}
+    //     public function __construct()
+    // {
+    //   $this->middleware('auth');
+    // }
 
 /**
  * Show chats
@@ -32,9 +32,11 @@ public function index()
 public function fetchMessages(Request $request)
 {
   $id_ticket = $request->id_ticket;
-  
+  $message = Chat::where('id_ticket',$id_ticket)->with('chatsmessage')->get();
+  // $message = Chat::with('chatsmessage')->get();
+  // $message = Chat::All();
+  return response()->json($message);
 
-  return Message::with('user')->with('ticket')->get();
 }
 
 /**
@@ -44,15 +46,8 @@ public function fetchMessages(Request $request)
  * @return Response
  */
 public function sendMessage(Request $request)
-{
-  $user = Auth::user();
+  {
+    // $message = $request->all();
 
-  $message = $user->messages()->create([
-    'message' => $request->input('message')
-  ]);
-
-  broadcast(new MessageSent($user, $message))->toOthers();
-
-  return ['status' => 'Message Sent!'];
-}
+  }
 }

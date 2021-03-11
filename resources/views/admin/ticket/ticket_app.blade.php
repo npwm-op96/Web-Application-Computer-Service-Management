@@ -13,13 +13,9 @@
 
 	function manageData() {
 	    $.ajax({
-
 	        dataType: 'json',
-
 	        url: url,
-
 	        data: {page:page}
-
 	    }).done(function(data){
 	    	total_page = data.last_page;
 
@@ -40,7 +36,7 @@
 
 	    });
 
-	}
+	}setInterval(manageData, 10000);  
 	$.ajaxSetup({
 	    headers: {
 	            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -50,17 +46,12 @@
 	/* Get Page Data*/
 
 	function getPageData() {
-
 		$.ajax({
-
 	    	dataType: 'json',
-
 	    	url: url,
-
 	    	data: {page:page}
-
 		}).done(function(data){
-
+			console.log(data.date)
 			manageRow(data.data);
 
 		});
@@ -78,29 +69,19 @@
 		var	rows = '';
 
 		$.each( data, function( key, value ) {
-
 		  	rows = rows + '<tr class="small" >';
-
 		  	rows = rows + '<td>'+value.id_ticket+'</td>';
-
 	      rows = rows + '<td role="cell" >'+value.emps.first_name+'</td>';
 	      rows = rows + '<td>'+value.stores.computer_name+'</td>';
-
 		  rows = rows + '<td data-id="'+value.id+'">';
-
         rows = rows + '<span data-toggle="modal" data-target="#edit-show" class="edit-show d-inline-block text-truncate" style="max-width: 70px;">'+value.content+'&nbsp;<i class="far fa-eye"></i></span> ';
-
-
         rows = rows + '</td>';
-
 	      rows = rows + '<td>'+value.problem_type+'</td>';
 	      rows = rows + '<td>'+value.created_at+'</td>';
 		  if (value.id_staff==null)
 	      rows = rows + '<td>'+'รอเจ้าหน้าทีตอบรับ'+'</td>';
 		  else
 		  rows = rows + '<td>'+value.it.first_name+'</td>';
-
-
             if(value.status=='success')
 	            rows = rows + '<td><span class="badge badge-success lg">Success</span></td>';
             else if(value.status=='accept')
@@ -116,14 +97,11 @@
 				else
 				rows = rows + '<td>'+value.proceed+'</td>';
 	      		rows = rows + '<td>'+value.updated_at+'</td>';
-
 				 if(value.status=='success')
 				 	rows = rows + '<td>'+value.updated_at+'</td>';
 				else
 	      		rows = rows + '<td>'+value.end_time+'</td>';
-
 				rows = rows + '<td>'+value.satisfaction+'</td>';
-
 				@if(Auth::user()->type==0)
                 	if(value.satisfaction==null)
                   rows = rows + '<td class=small data-id="'+value.id_ticket+'">';
@@ -132,16 +110,14 @@
                     rows = rows + ' <button data-toggle="modal" data-target="#edit-satisfaction" class="edit-satisfaction fas fa-grin btn btn-primary small  btn-sm ">  </button>';
 
                     else if(value.status!='waiting')
-						rows = rows + '<button id="onchats" data-toggle="modal" id="onchats" data-target="#onchats" class="onchats fab fa-rocketchat btn btn-info small btn-sm "></button> ';
+						rows = rows + '<button data-toggle="modal" data-target="#edit-chat" class="edit-chat fab fa-rocketchat btn btn-info small btn-sm "></button> ';
 						else
 					rows = rows + '';
-
-
 						@else
 					if(value.id_staff== null||value.id_staff=={{ Auth::user()->id_emp }})
                         if(value.satisfaction==null)
 						rows = rows + '<td class=small data-id="'+value.id_ticket+'">';
-						rows = rows + '<button  id="onchats" data-target="#onchats" class="onchats fab fa-rocketchat btn btn-info small btn-sm "></button> ';
+						rows = rows + '<button data-toggle="modal" data-target="#edit-chat" class="edit-chat fab fa-rocketchat btn btn-info small btn-sm "></button> ';
 			        	rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="fas fa-edit btn btn-primary small edit-item btn-sm "></button> ';
 			        	rows = rows + '<button class="fas fa-trash-alt btn btn-danger small remove-item btn-sm "> </button>';
 				@endif
@@ -157,7 +133,7 @@
 		$("tbody").html(rows);
 
 	}
-	setInterval(getPageData, 5000);   // 1000 = 1 second
+ // 1000 = 1 second
 
 
 
@@ -198,15 +174,6 @@
 	    });
 
 	});
-
-
-
-
-
-
-
-
-
 
 
 	/* Remove Post */
@@ -374,22 +341,6 @@ $("body").on("click",".edit-satisfaction",function(){
 	});
 //Chats
 
-		$("#onchats").on("click", function () {
-			console.log('Hi')
-			$(".chat").slideToggle(300, "swing");
-			$(".chat-message-counter").fadeToggle(300, "swing");
-		});
-
-		$(".chat-close").on("click", function (e) {
-			e.preventDefault();
-			$("#live-chat").fadeOut(300);
-		});
-		// $("body").on("click",".edit-chats",function(){
-		// 	var id = $(this).parent("td").data('id');
-
-		// 	console.log(id)
-		// 	});
-
 		
 		
 
@@ -415,22 +366,19 @@ $("body").on("click",".edit-show",function(){
 
   /* Chat*/
 
-$("body").on("click",".edit-chat",function(){
+  $("body").on("click",".edit-chat",function(){
 
-    var id = $(this).parent("td").data('id');
+var id = $(this).parent("td").data('id');
+$("#edit-chat").find("input[id='id_ticket']").val(id);
 
-    var content = $(this).parent("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").prev("td").text();
 
 
-    $("#edit-chat").find("input[name='id_ticket']").val(content);
-
-    $("#edit-chat").find("form").attr("action",url + '/' + id);
 
 });
 
-$( "#chats" ).click(function() {
-	console.log('Hi')
+// $( "#chats" ).click(function() {
+// 	console.log('Hi')
 
-});
+// });
 
 	</script>

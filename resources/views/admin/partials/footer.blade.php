@@ -2,8 +2,8 @@
 <footer class="sticky-footer bg-white">
   <div class="container my-auto">
     <div class="copyright text-center my-auto">
-      <span><i class="fab fa-laravel
-">  Development By Nattapon Wongradsamee CS-60 RMUTP</i></span>
+      <span><i class="fab fa-laravel text-danger
+">  </i>  Development By Npwm.op96</span>
     </div>
   </div>
 </footer>
