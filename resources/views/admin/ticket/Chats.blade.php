@@ -121,7 +121,7 @@
                 success: function(data) {
                 chatsmessage.push(messages)
                 $.each(chatsmessage, function(index,value){
-                  $("#chatsmessage" ).append("<div>"+value.content+"</div>");
+                  $("#chatsmessage" ).append("<div class='d-flex justify-end'>"+value.content+"</div>");
                 });
                 },
             });
