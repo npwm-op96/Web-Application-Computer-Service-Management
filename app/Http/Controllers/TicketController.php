@@ -53,7 +53,7 @@ class TicketController extends Controller
 
 
         if(Auth::user()->isAdmin()){
-          $posts = Ticket::orderBy('updated_at','desc')->with('emps')->with('stores')->with('it')->with('user')->with('type')
+          $posts = Ticket::orderBy('updated_at','desc')->where('status','!=','success')->with('emps')->with('stores')->with('it')->with('user')->with('type')
           ->paginate(11);
         }
         else {

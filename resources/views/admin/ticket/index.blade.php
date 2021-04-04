@@ -19,6 +19,7 @@
         <div class="col-lg-12 margin-tb">
 
             <div class="pull-left">
+                
             </div>
             <div class="pull-right">
                 @if (Auth::user()->type == 0)
@@ -31,13 +32,16 @@
                             class="fas fa-file-export"></span> </a></button>
                 @else
                     <a href="{{ url('ticket') }}" class="btn btn-secondary btn-circle btn-xl"><span
-                            class="fas fa-undo-alt"></span> </a></button>
+                            class="fas fa-undo-alt"></span> </a>
+                        </button>
                     <a href="{{ url('ticket') }}" class="btn btn-info btn-circle btn-xl"><span
                             class="fas fa-file-export"></span> </a></button>
                 @endif
                 <div class="pull-right">
+                    
                 </div>
             </div>
+    
         </div>
     </div>
     <br>
@@ -114,7 +118,7 @@ and also iPads specifically.
         <thead class="thead-dark " role="rowgroup">
             <tr role="row">
                 
-                <th role="columnheader">ID_Ticket</th>
+                <th w role="columnheader">ID_Ticket</th>
                 <th><span class="fas fa-address-book"> Name</th>
                 <th><span class="fas fa-laptop"> PC</th>
                 <th><span class="fas fa-receipt"> Content</th>

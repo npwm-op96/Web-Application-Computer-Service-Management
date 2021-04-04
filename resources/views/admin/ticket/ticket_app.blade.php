@@ -69,8 +69,38 @@
 		var	rows = '';
 
 		$.each( data, function( key, value ) {
+			var dt = new Date();
+			year  = dt.getFullYear();
+			month = (dt.getMonth() + 1).toString().padStart(2, "0");
+			day   = dt.getDate().toString().padStart(2, "0")
+			var datenow = year+month+day
+
+
+			var datecheck = value.updated_at.slice(0, 10);
+			var d = datecheck.split("-");
+			var year_ticket = d[0]
+			var month_ticket = d[1]
+			var day_ticket = d[2]
+			date_ticket = year_ticket+month_ticket+day_ticket
+			var date_sum = datenow - date_ticket+'%'
+			var date_pro = datenow - date_ticket
+			var color_pro=''
+			if(date_pro<35){
+				color_pro = ""
+			}
+			if(date_pro<99){
+				color_pro = "bg-warning"
+			}
+			if(date_pro>99){
+				color_pro = "bg-danger"
+			}
+			console.log(date_sum)
+
+			// console.log(date_result)
+
+
 		  	rows = rows + '<tr class="small" >';
-		  	rows = rows + '<td>'+value.id_ticket+'</td>';
+		  	rows = rows + '<td><span class="badge rounded-pill bg-primary">'+value.id_ticket+'</span></td>';
 	      rows = rows + '<td role="cell" >'+value.emps.first_name+'</td>';
 	      rows = rows + '<td>'+value.stores.computer_name+'</td>';
 		  rows = rows + '<td data-id="'+value.id+'">';
@@ -101,7 +131,16 @@
 				 	rows = rows + '<td>'+value.updated_at+'</td>';
 				else
 	      		rows = rows + '<td>'+value.end_time+'</td>';
-				rows = rows + '<td>'+value.satisfaction+'</td>';
+				  if(value.satisfaction==null){
+					rows = rows + '<td>'+'<div class="spinner-border text-info" role="status"><span class="visually-hidden"></span></div>'+'</td>';
+				  }
+				  if(value.satisfaction=="very good"){
+					rows = rows + '<td>'+'<button class="btn btn"><i class="far fa-thumbs-up"></i></button>'+'</td>';
+				  }
+				  if(value.satisfaction=="good"){
+					rows = rows + '<td>'+'<button class="btn btn"><i class="far fa-heart"></i></button>'+'</td>';
+				  }
+				  
 				@if(Auth::user()->type==0)
                 	if(value.satisfaction==null)
                   rows = rows + '<td class=small data-id="'+value.id_ticket+'">';
@@ -119,7 +158,7 @@
 						rows = rows + '<td class=small data-id="'+value.id_ticket+'">';
 						rows = rows + '<button data-toggle="modal" data-target="#edit-chat" class="edit-chat fab fa-rocketchat btn btn-info small btn-sm "></button> ';
 			        	rows = rows + '<button data-toggle="modal" data-target="#edit-item" class="fas fa-edit btn btn-primary small edit-item btn-sm "></button> ';
-			        	rows = rows + '<button class="fas fa-trash-alt btn btn-danger small remove-item btn-sm "> </button>';
+			        	// rows = rows + '<button class="fas fa-trash-alt btn btn-danger small remove-item btn-sm "> </button>';
 				@endif
 
 
@@ -127,9 +166,15 @@
 	        rows = rows + '</td>';
 
 		  	rows = rows + '</tr>';
+			  //Rang
+			rows = rows + '<tr>';
+				if(value.status!='success')
+				rows = rows +'<td colspan="4">'+'<div class="progress"><div class="progress-bar progress-bar-striped '+color_pro+'" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width:'+date_sum+'"><span class="sr-only">45% Complete</span></div></div>'+'</td>';
+				rows = rows +'<td colspan="2">'+'<div class="">Date Process  :  '+date_pro+' Day </div>'+'</td>';
+
+			rows = rows + '</tr>';
 
 		});
-
 		$("tbody").html(rows);
 
 	}
