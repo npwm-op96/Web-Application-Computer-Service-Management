@@ -76,11 +76,11 @@ body{
                 <table class=" small" id="user_table" width="80%" cellspacing="0">
                   <thead>
                     <tr>
-                        <th >รหัส</th>
-                        <th >หมวดปัญหา</th>
-                        <th >สร้างเมือ</th>
-                        <th >อัพเดท</th>
-                        <th >ตั้งค่่า</th>
+                        <th >ID</th>
+                        <th >Type</th>
+                        <th >Origin</th>
+                        <th >Update</th>
+                        <th >Setting</th>
                     </tr>
                   </thead>
 
@@ -97,7 +97,7 @@ body{
   <div class="modal-content">
    <div class="modal-header">
           
-          <h4 class="modal-title">เพิ่มรายแผนก</h4>
+          <h4 class="modal-title">+ Dividtion</h4>
 	   <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -105,7 +105,7 @@ body{
          <form method="post" id="sample_form" class="form-horizontal" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
-            <label class="control-label col-md-4" >หมวดปัญหา: </label>
+            <label class="control-label col-md-4" >Type promblem : </label>
             <div class="col-md-8">
              <input type="text" name="name_type" id="name_type" class="form-control" />
             </div>
@@ -138,8 +138,8 @@ body{
                 <h6 align="center" style="margin:0;">คุณแน่ใจที่จะลบข้อมูลออกจาดระบบ ?</h6>
             </div>
             <div class="modal-footer">
-             <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">ตกลง</button>
-                <button type="button" class="btn btn-default" data-dismiss="modal">ยกเลิก</button>
+             <button type="button" name="ok_button" id="ok_button" class="btn btn-danger">OK</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
             </div>
         </div>
     </div>

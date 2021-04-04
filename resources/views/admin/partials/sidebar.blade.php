@@ -32,7 +32,7 @@
         <li class="nav-item ">
             <a class="nav-link" href="{{ url('post_public') }}">
                 <i class="fas fa-comment-alt"></i>
-                <span>โพสสาธารณะ</span></a>
+                <span>Content</span></a>
         </li>
 
         <!-- Divider -->
@@ -40,7 +40,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            เมนูการใช้งาน
+            Menu
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
@@ -48,13 +48,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                 aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-box-open"></i>
-                <span>คลังอุปกรณ์</span>
+                <span>Store</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Manage</h6>
-                    <a class="collapse-item" href="{{ url('stores') }}">คอมพิวเตอร์</a>
-                    <a class="collapse-item" href="{{ url('number') }}">เบอร์ภายใน</a>
+                    <a class="collapse-item" href="{{ url('stores') }}">Computer</a>
+                    <a class="collapse-item" href="{{ url('number') }}">Phone</a>
                 </div>
             </div>
         </li>
@@ -65,14 +65,14 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                 aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-layer-group"></i>
-                <span>ระบบการแจ้งซ่อม</span>
+                <span>System Ticket</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                 data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">ตัวเลือก</h6>
-                    <a class="collapse-item" href="{{ url('ticket') }}">รายการแจ้งซ่อม</a>
-                    <a class="collapse-item" href="{{ url('export') }}">รายงาน</a>
+                    <h6 class="collapse-header">Option</h6>
+                    <a class="collapse-item" href="{{ url('ticket') }}">List Ticket</a>
+                    <a class="collapse-item" href="{{ url('export') }}">Report</a>
                 </div>
             </div>
         </li>
@@ -83,7 +83,7 @@
 
         <!-- Heading -->
         <div class="sidebar-heading">
-            ตั้งค่าส่วนของระบบ
+            Setting
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
@@ -91,13 +91,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
                 aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-fingerprint"></i>
-                <span>สมาชิก</span>
+                <span>Member</span>
             </a>
             <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">ตัวเลือก</h6>
+                    <h6 class="collapse-header">Option</h6>
 
-                    <a class="collapse-item" href="{{ url('member') }}">จัดการสมาชิก</a>
+                    <a class="collapse-item" href="{{ url('member') }}">Management Member</a>
 
                 </div>
             </div>
@@ -107,12 +107,12 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseEmp"
                 aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-user-cog"></i>
-                <span>ระบบพนักงาน</span>
+                <span>System Employee</span>
             </a>
             <div id="collapseEmp" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">ตัวเลือก</h6>
-                    <a class="collapse-item" href="{{ url('employee') }}">รายชื่อพนักงาน</a>
+                    <h6 class="collapse-header">Option</h6>
+                    <a class="collapse-item" href="{{ url('employee') }}">ListEmployee</a>
                 </div>
             </div>
         </li>
@@ -121,13 +121,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseDep"
                 aria-expanded="true" aria-controls="collapsePages">
                 <i class="fas fa-braille"></i>
-                <span>ระบบเงือนไข</span>
+                <span>Condition</span>
             </a>
             <div id="collapseDep" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">ตัวเลือก</h6>
-                    <a class="collapse-item" href="{{ url('problem') }}">เพิ่มหมวดปัญหา</a>
-                    <a class="collapse-item" href="{{ url('department') }}">เพิ่มแผนก</a>
+                    <h6 class="collapse-header">Option</h6>
+                    <a class="collapse-item" href="{{ url('problem') }}">Problem</a>
+                    <a class="collapse-item" href="{{ url('department') }}">Division</a>
                 </div>
             </div>
         </li>

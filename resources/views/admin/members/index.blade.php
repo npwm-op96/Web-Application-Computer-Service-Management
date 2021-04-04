@@ -60,7 +60,7 @@ body{
                <button type="button" name="create_record" id="create_record" class="btn btn-success btn-circle btn-lg"><span class="
          fas fa-plus-circle"></span></button>
               </div>
-              <div class="row">ผู้ดูแลระบบ = 1 ผู้ใช้=0</div>
+              <div class="row">Adminstrators = 1 User=0</div>
 
               </div></div></h6>
             </div>
@@ -69,12 +69,12 @@ body{
                 <table class=" small" id="user_table" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                        <th >รหัสพนักงาน</th>
-                        <th >ชื่อ</th>
-                        <th width="10%">รหัสผ่าน</th>
-                        <th >ระดับ</th>
-                        <th >สถานะ</th>
-                        <th >ตั้งค่่า</th>
+                        <th >ID</th>
+                        <th >Name</th>
+                        <th width="10%">Password</th>
+                        <th >Level</th>
+                        <th >Status</th>
+                        <th >Setting</th>
                     </tr>
                   </thead>
 
@@ -90,7 +90,7 @@ body{
  <div class="modal-dialog">
   <div class="modal-content">
    <div class="modal-header">
-        <h4 class="modal-title">เพิ่มสมาชิก</h4>
+        <h4 class="modal-title">Add Member</h4>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
@@ -98,37 +98,37 @@ body{
          <form method="post" id="sample_form" class="form-horizontal" enctype="multipart/form-data">
           @csrf
           <div class="form-group">
-            <label class="control-label col-md-4" >รหัสพนักงาน : </label>
+            <label class="control-label col-md-4" >Id Employee : </label>
             <div class="col-md-8">
              <input type="text" name="id_emp" id="id_emp" class="form-control" />
             </div>
            </div>
 
            <div class="form-group">
-            <label class="control-label col-md-4">รหัสผ่าน : </label>
+            <label class="control-label col-md-4">Password : </label>
             <div class="col-md-8">
              <input type="text" name="password" id="password" class="form-control" />
             </div>
            </div>
            <div class="form-group">
-            <label class="control-label col-md-4">ระดับ : </label>
+            <label class="control-label col-md-4">Level : </label>
             <div class="col-md-8">
 
                <select id="type" name="type" class="browser-default custom-select">
-            <option value=1>ผู้ดูแลระบบ</option>
-            <option value=0>ผู้ใช้</option>
+            <option value=1>Administrators</option>
+            <option value=0>User</option>
 
           </select>
             </div>
            </div>
            <div class="form-group">
-            <label class="control-label col-md-4">สถานะ : </label>
+            <label class="control-label col-md-4">Status : </label>
             <div class="col-md-8">
 
                            <select id="status" name="status" class="browser-default custom-select">
-            <option value=1>ปกติ</option>
-            <option value=0>ไม่ปกติ</option>
-            <option value=2>ระงับ</option>
+            <option value=1>Active</option>
+            <option value=0>Inactive</option>
+            <option value=2>Block</option>
 
 
 
